@@ -12,35 +12,24 @@ function PrivateRoute({ children }) {
   return isAuthenticated ? children : <Navigate to="/login" replace />;
 }
 
-function AppRoutes() {
-  return (
-    <Routes>
-      <Route path="/login" element={<Login />} />
-      <Route
-        path="/*"
-        element={
-          <PrivateRoute>
-            <Layout>
-              <Routes>
-                <Route path="/" element={<Navigate to="/dashboard" replace />} />
-                <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/patients" element={<PatientAnalytics />} />
-                <Route path="/predict" element={<PredictionTool />} />
-                <Route path="/reports" element={<Reports />} />
-              </Routes>
-            </Layout>
-          </PrivateRoute>
-        }
-      />
-    </Routes>
-  );
-}
-
 export default function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
-        <AppRoutes />
+        <Routes>
+          <Route path="/login" element={<Login />} />
+
+          {/* Public entry points: root and /dashboard show the executive dashboard */}
+          <Route path="/" element={<Layout><Dashboard /></Layout>} />
+          <Route path="/dashboard" element={<Layout><Dashboard /></Layout>} />
+
+          {/* Protected routes */}
+          <Route path="/patients" element={<PrivateRoute><Layout><PatientAnalytics /></Layout></PrivateRoute>} />
+          <Route path="/predict" element={<PrivateRoute><Layout><PredictionTool /></Layout></PrivateRoute>} />
+          <Route path="/reports" element={<PrivateRoute><Layout><Reports /></Layout></PrivateRoute>} />
+
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
       </BrowserRouter>
     </AuthProvider>
   );
