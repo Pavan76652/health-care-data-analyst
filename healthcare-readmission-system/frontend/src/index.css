@@ -1,0 +1,140 @@
+:root {
+  --hr-primary: #1b4f72;
+  --hr-accent: #2e86c1;
+  --hr-success: #27ae60;
+  --hr-warning: #f39c12;
+  --hr-danger: #e74c3c;
+  --hr-bg: #f4f6f9;
+  --hr-card: #ffffff;
+  --hr-text: #2c3e50;
+  --hr-muted: #7f8c8d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background: var(--hr-bg);
+  color: var(--hr-text);
+}
+
+.app-shell {
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 260px;
+  min-height: 100vh;
+  background: linear-gradient(180deg, var(--hr-primary) 0%, #154360 100%);
+  color: #fff;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+}
+
+.sidebar-brand {
+  padding: 1.5rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.85);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0;
+  transition: background 0.2s;
+}
+
+.sidebar-nav .nav-link:hover,
+.sidebar-nav .nav-link.active {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.main-content {
+  margin-left: 260px;
+  padding: 1.5rem 2rem;
+}
+
+@media (max-width: 991px) {
+  .sidebar {
+    width: 100%;
+    min-height: auto;
+    position: relative;
+  }
+  .main-content {
+    margin-left: 0;
+    padding: 1rem;
+  }
+}
+
+.kpi-card {
+  background: var(--hr-card);
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border-left: 4px solid var(--hr-accent);
+  height: 100%;
+}
+
+.kpi-card .kpi-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--hr-primary);
+}
+
+.kpi-card .kpi-label {
+  font-size: 0.85rem;
+  color: var(--hr-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.chart-card {
+  background: var(--hr-card);
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  height: 100%;
+}
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--hr-primary), var(--hr-accent));
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.risk-badge-high { background: var(--hr-danger); color: #fff; }
+.risk-badge-moderate { background: var(--hr-warning); color: #fff; }
+.risk-badge-low { background: var(--hr-success); color: #fff; }
+
+.page-header {
+  margin-bottom: 1.5rem;
+}
+
+.page-header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.page-header p {
+  color: var(--hr-muted);
+  margin: 0.25rem 0 0;
+}

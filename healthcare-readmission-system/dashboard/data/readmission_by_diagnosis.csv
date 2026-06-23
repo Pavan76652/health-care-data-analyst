@@ -1,0 +1,16 @@
+diag_1_group,admissions,readmit_30,readmission_rate_pct
+Circulatory_390_459,30336,3474,11.45
+Other_7xx,13079,1222,9.34
+Respiratory_460_519,10407,1112,10.69
+Digestive_520_579,9208,966,10.49
+Diabetes_250,8869,1150,12.97
+Injury_800_999,6974,854,12.25
+Other_2xx,6396,778,12.16
+Other_5xx,4296,499,11.62
+Other_6xx,3797,306,8.06
+Other_3xx,3320,355,10.69
+Other_1xx,2745,283,10.31
+Supplementary_V,1644,266,16.18
+Other_8xx,532,75,14.1
+Other_4xx,86,8,9.3
+Other_9xx,55,4,7.27

@@ -1,0 +1,49 @@
+{
+  "raw_rows": 101766,
+  "cleaned_rows": 101766,
+  "cleaned_columns": 54,
+  "feature_matrix_shape": [
+    101766,
+    84
+  ],
+  "cleaning_stats": {
+    "initial_rows": 101766,
+    "final_rows": 101766,
+    "duplicates_removed": 0,
+    "columns_dropped": [
+      "weight",
+      "max_glu_serum",
+      "A1Cresult",
+      "payer_code",
+      "medical_specialty",
+      "encounter_id",
+      "patient_nbr"
+    ],
+    "features_engineered": [
+      "age_midpoint",
+      "total_prior_visits",
+      "active_medication_count",
+      "on_insulin",
+      "had_prior_inpatient",
+      "had_prior_emergency",
+      "diag_1_group",
+      "diag_2_group",
+      "diag_3_group",
+      "readmitted_30_days",
+      "high_utilization_flag"
+    ],
+    "target_positive_rate": 11.16
+  },
+  "quality_report_path": "C:\\Users\\gouda\\OneDrive\\Desktop\\healthcare Data analyst\\healthcare-readmission-system\\reports\\data_quality_report.json",
+  "cleaned_data_path": "C:\\Users\\gouda\\OneDrive\\Desktop\\healthcare Data analyst\\healthcare-readmission-system\\data\\processed\\cleaned_data.csv",
+  "preprocessor_path": "C:\\Users\\gouda\\OneDrive\\Desktop\\healthcare Data analyst\\healthcare-readmission-system\\models\\preprocessor.joblib",
+  "target_distribution": {
+    "raw_counts": {
+      "NO": 54864,
+      ">30": 35545,
+      "<30": 11357
+    },
+    "readmission_within_30_days_rate": 11.16,
+    "class_imbalance_ratio": 4.83
+  }
+}

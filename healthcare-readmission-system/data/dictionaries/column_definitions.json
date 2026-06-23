@@ -1,0 +1,34 @@
+{
+  "dataset": "Diabetes 130-US Hospitals for years 1999-2008",
+  "source": "UCI Machine Learning Repository",
+  "primary_file": "diabetic_data.csv",
+  "rows": 101766,
+  "columns": 50,
+  "target_variable": {
+    "column": "readmitted",
+    "values": {
+      "NO": "No readmission",
+      ">30": "Readmitted after 30 days",
+      "<30": "Readmitted within 30 days (positive class)"
+    },
+    "ml_target": "readmitted_30_days (binary)"
+  },
+  "key_columns": {
+    "identifiers": ["encounter_id", "patient_nbr"],
+    "demographics": ["race", "gender", "age"],
+    "admission": ["admission_type_id", "discharge_disposition_id", "admission_source_id", "time_in_hospital"],
+    "clinical": ["num_lab_procedures", "num_procedures", "num_medications", "number_diagnoses"],
+    "diagnosis": ["diag_1", "diag_2", "diag_3"],
+    "prior_utilization": ["number_outpatient", "number_emergency", "number_inpatient"],
+    "medications": ["diabetesMed", "change", "insulin", "metformin"],
+    "dropped_high_missing": ["weight", "max_glu_serum", "A1Cresult", "payer_code", "medical_specialty"]
+  },
+  "engineered_features": {
+    "age_midpoint": "Numeric midpoint from age bracket",
+    "total_prior_visits": "Sum of outpatient + emergency + inpatient visits in prior year",
+    "active_medication_count": "Count of medications with Steady/Up/Down status",
+    "diag_1_group": "ICD-9 diagnosis category for primary diagnosis",
+    "readmitted_30_days": "Binary: 1 if readmitted <30 days, else 0",
+    "high_utilization_flag": "IQR outlier flag on prior visit counts"
+  }
+}

@@ -1,0 +1,16 @@
+**/__pycache__
+**/*.pyc
+**/.pytest_cache
+**/.venv
+**/venv
+node_modules
+frontend/node_modules
+.git
+*.md
+notebooks
+reports/eda_plots
+database/seeds/csv
+data/raw/*.csv
+data/raw/*.zip
+.env
+.env.*

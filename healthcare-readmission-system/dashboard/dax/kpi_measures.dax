@@ -1,0 +1,93 @@
+// =============================================================================
+// Power BI DAX Measures — Healthcare Readmission Executive Dashboard
+// Table: fact_admissions (primary fact table)
+// =============================================================================
+
+// --- KPI Cards ---
+
+Total Patients =
+DISTINCTCOUNT ( fact_admissions[patient_id] )
+
+Total Admissions =
+COUNTROWS ( fact_admissions )
+
+Readmission Rate % =
+DIVIDE (
+    CALCULATE ( COUNTROWS ( fact_admissions ), fact_admissions[readmitted_30_days] = 1 ),
+    COUNTROWS ( fact_admissions ),
+    0
+) * 100
+
+Average Length of Stay =
+AVERAGE ( fact_admissions[time_in_hospital] )
+
+High Risk Patients =
+CALCULATE (
+    COUNTROWS ( fact_admissions ),
+    fact_admissions[high_risk_flag] = "Yes"
+)
+
+Top Diagnosis Count =
+CALCULATE (
+    COUNTROWS ( fact_admissions ),
+    TOPN ( 1, ALL ( fact_admissions[diag_1_group] ), [Admission Count by Diagnosis], DESC )
+)
+
+Admission Count by Diagnosis =
+COUNTROWS ( fact_admissions )
+
+// --- Chart Measures ---
+
+Readmissions 30 Day =
+CALCULATE ( COUNTROWS ( fact_admissions ), fact_admissions[readmitted_30_days] = 1 )
+
+Readmission Rate by Age =
+DIVIDE (
+    CALCULATE ( COUNTROWS ( fact_admissions ), fact_admissions[readmitted_30_days] = 1 ),
+    COUNTROWS ( fact_admissions ),
+    0
+) * 100
+
+Readmission Rate by Gender =
+DIVIDE (
+    CALCULATE ( COUNTROWS ( fact_admissions ), fact_admissions[readmitted_30_days] = 1 ),
+    COUNTROWS ( fact_admissions ),
+    0
+) * 100
+
+Monthly Admissions =
+COUNTROWS ( fact_admissions )
+
+Monthly Readmission Rate =
+DIVIDE (
+    CALCULATE ( COUNTROWS ( fact_admissions ), fact_admissions[readmitted_30_days] = 1 ),
+    COUNTROWS ( fact_admissions ),
+    0
+) * 100
+
+Avg Medications =
+AVERAGE ( fact_admissions[num_medications] )
+
+Insulin Patient Count =
+CALCULATE ( COUNTROWS ( fact_admissions ), fact_admissions[on_insulin] = "Yes" )
+
+// --- Conditional Formatting ---
+
+Readmission Rate Color =
+SWITCH (
+    TRUE (),
+    [Readmission Rate %] >= 15, "Critical",
+    [Readmission Rate %] >= 11, "Warning",
+    "Good"
+)
+
+Risk Score Proxy =
+// Use for conditional formatting when ML scores are joined later
+AVERAGE ( fact_admissions[total_prior_visits] ) * 10
+    + AVERAGE ( fact_admissions[num_medications] ) * 2
+
+// --- Tooltips ---
+
+Readmission Insight =
+"30-day readmission is the CMS Hospital Readmissions Reduction Program (HRRP) metric. "
+    & "National diabetic cohort average is ~11-12%."

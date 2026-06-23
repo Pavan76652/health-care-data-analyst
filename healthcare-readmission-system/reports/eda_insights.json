@@ -1,0 +1,63 @@
+{
+  "dataset_rows": 101766,
+  "readmission_rate_30_day_pct": 11.16,
+  "plots_directory": "C:\\Users\\gouda\\OneDrive\\Desktop\\healthcare Data analyst\\healthcare-readmission-system\\reports\\eda_plots",
+  "insights": [
+    {
+      "chart": "Age Distribution",
+      "peak_bracket": "[70-80)",
+      "peak_count": 26068,
+      "pct_age_60_plus": 67.4,
+      "insight": "Admissions peak in the [70-80) bracket (26,068 encounters). Patients aged 60+ account for 67.4% of all admissions, reflecting the elderly-heavy diabetic inpatient population typical of US hospitals."
+    },
+    {
+      "chart": "Gender Distribution",
+      "female_pct": 53.8,
+      "readmit_rate_female": 11.25,
+      "readmit_rate_male": 11.06,
+      "insight": "Females represent 53.8% of admissions. 30-day readmission rates: Female 11.25% vs Male 11.06%. Gender differences are modest; age and prior utilization are stronger predictors."
+    },
+    {
+      "chart": "Readmission Trends",
+      "readmit_30_day_rate": 11.16,
+      "readmit_after_30_rate": 34.93,
+      "highest_risk_age": "[20-30)",
+      "insight": "Overall 30-day readmission rate is 11.16% \u2014 a key CMS penalty metric. An additional 34.9% are readmitted after 30 days. Highest-risk age bracket: [20-30). Hospitals should target discharge planning for elderly high-utilization patients."
+    },
+    {
+      "chart": "Diagnosis Analysis",
+      "top_volume_diagnosis": "Circulatory_390_459",
+      "top_volume_count": 30336,
+      "highest_readmit_diagnosis": "Supplementary_V",
+      "highest_readmit_rate": 16.18,
+      "insight": "Circulatory_390_459 is the most common primary diagnosis (30,336 cases). Supplementary_V has the highest readmission rate (16.2%) among high-volume groups. Care pathways for circulatory and diabetes complications should be prioritized for readmission reduction programs."
+    },
+    {
+      "chart": "Length of Stay Analysis",
+      "avg_los_days": 4.4,
+      "median_los_days": 4.0,
+      "los_readmit_correlation": 0.044,
+      "insight": "Average length of stay is 4.4 days (median 4). LOS-readmission correlation is 0.044. Longer stays often indicate clinical complexity; extended stays beyond 7 days warrant enhanced discharge planning and home health coordination."
+    },
+    {
+      "chart": "Medication Analysis",
+      "top_medication": "insulin",
+      "top_med_count": 54383,
+      "avg_medications": 16.0,
+      "insulin_readmit_rate": 12.14,
+      "no_insulin_readmit_rate": 10.04,
+      "insight": "insulin is the most frequently active medication (54,383 cases). Patients on insulin have a 12.1% readmission rate vs 10.0% without insulin, indicating insulin use as a complexity marker. Polypharmacy (16+ meds) correlates with elevated readmission risk."
+    },
+    {
+      "chart": "Correlation Heatmap",
+      "strongest_predictor": "number_inpatient",
+      "strongest_correlation": 0.165,
+      "top_3_predictors": {
+        "number_inpatient": 0.165,
+        "total_prior_visits": 0.126,
+        "number_emergency": 0.061
+      },
+      "insight": "Strongest correlation with 30-day readmission: number_inpatient (r=0.165). Prior utilization (inpatient/emergency visits) and medication count cluster together, confirming that high-utilization diabetic patients are the primary readmission risk cohort. These features should be weighted heavily in the ML model."
+    }
+  ]
+}

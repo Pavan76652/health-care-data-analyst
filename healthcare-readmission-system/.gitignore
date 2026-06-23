@@ -1,0 +1,59 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+.venv/
+env/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Node / React
+node_modules/
+frontend/build/
+frontend/dist/
+.npm
+*.log
+
+# Data (large files — keep structure, not raw downloads)
+data/raw/*.csv
+data/raw/*.zip
+data/processed/*.csv
+data/processed/*.parquet
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Models (trained artifacts)
+models/*.pkl
+models/*.joblib
+models/*.json
+!models/.gitkeep
+
+# Environment & secrets
+.env
+.env.local
+*.pem
+
+# IDE & OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Power BI
+dashboard/*.pbix
+!dashboard/data/
+!dashboard/README.md
+
+# Database seed CSVs (generated — regenerate with generate_seed_data.py)
+database/seeds/csv/*.csv
+!database/seeds/csv/.gitkeep

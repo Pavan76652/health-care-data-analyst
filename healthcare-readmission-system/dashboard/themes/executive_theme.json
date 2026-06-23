@@ -1,0 +1,15 @@
+{
+  "name": "Healthcare Readmission Executive",
+  "dataColors": ["#1B4F72", "#2E86C1", "#48C9B0", "#E74C3C", "#F39C12", "#8E44AD"],
+  "background": "#F8F9FA",
+  "foreground": "#2C3E50",
+  "tableAccent": "#2E86C1",
+  "visualStyles": {
+    "card": {
+      "*": {
+        "labels": [{ "fontSize": 12 }],
+        "categoryLabels": [{ "fontSize": 10, "color": { "solid": { "color": "#7F8C8D" } } }]
+      }
+    }
+  }
+}
