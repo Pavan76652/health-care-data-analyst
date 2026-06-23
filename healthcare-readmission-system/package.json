@@ -1,0 +1,8 @@
+{
+  "name": "healthcare-readmission-monorepo",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "build": "cd frontend && npm ci --silent && npm run build"
+  }
+}
